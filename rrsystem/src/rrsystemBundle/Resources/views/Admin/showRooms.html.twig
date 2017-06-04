@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class='container'>
+        <div class='row'> 
+            <div class='admin-users-rooms'>
+                <h3>Rooms:</h3>
+                <table class="table">
+                    {% for room in rooms %}
+                        <tr>
+                            <td>{{room.id}}</td>
+                            <td>{{room.name}}</td>
+                            <td>{{room.description}}</td>
+                            <td>{{room.size}}</td>
+                            <td><a class="delete btn btn-primary" href="{{ path('editRoom',{'id':room.id}) }}"><span class="glyphicon glyphicon-edit"></span> Edit</a></td>
+                            <td><a class="delete btn btn-default" href="{{ path('showRoomReservation',{'id':room.id}) }}"><span class="glyphicon glyphicon-list-alt"></span> Reservations</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    {% block javascript %}
+    {% endblock %}
+{% endblock %}

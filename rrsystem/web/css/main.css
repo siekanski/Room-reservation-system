@@ -1,0 +1,224 @@
+/* Menu */
+
+/* Content */
+
+.set-reservation-form {
+    margin-top: 6rem;
+}
+
+.set-reservation-form button {
+    margin-top: 10px;
+}
+
+.show-reservation {
+    margin-top: 6rem;
+}
+/* Left block */
+
+.block_left {
+    height: 100vh;
+    background-color: #959595;
+}
+
+.block_right {
+    background-color: #ffffff;
+}
+
+#index_form {
+    margin-top: 6rem;
+    width: 50%;
+}
+.left_bar_header {
+    font-size: 2rem;
+}
+
+.res-info {
+    font-size: 1.2rem;
+}
+
+.errorForm {
+    color: #000000;
+    font-weight: 150;
+}
+
+/* Right block */
+
+.block_right {
+    height: 100vh;
+
+}
+
+#h3_header {
+    margin-left: 40%;
+    margin-top: 150px;
+}
+
+#floor {
+    margin-left: 25px;
+    height: 45%;
+    width: 80%;
+    border-style: double;
+    display: table;
+    padding: 0;
+}
+
+.room-big {
+    display: table-cell;
+    height: 100%;
+    width: 20%;
+    border: 1px solid black;
+    background-image: url('../photos/conference_room.jpg');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    z-index: 1;
+}
+
+.room-medium {
+    background-image: url('../photos/room_medium.jpeg');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+
+.room-medium-2 {
+    background-image: url('../photos/room_small.jpeg');
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+
+.other-rooms {
+    display: table-cell;
+}
+
+.rooms-1 {
+    height: 30%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.rooms-2 {
+    height: 30%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.rooms-3 {
+    height: 40%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.room {
+    position: relative;
+    height: 100%;
+    border: 1px solid grey;
+}
+
+.room-name {
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+    font-size: 1rem;
+    line-height: 2px;
+}
+
+.room-name-top {
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    font-size: 1rem;
+    line-height: 2px;
+}
+
+#res_button {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.admin-button {
+    width: 90%;
+}
+
+.admin-index-view {
+    margin-top: 6rem;
+}
+
+.admin-users-rooms {
+    margin-top: 6rem;
+}
+
+.available {
+    box-shadow: 0 0 30px green;
+    border: 2px solid green;
+}
+.unavailable {
+    opacity: 0.2;
+    box-shadow: 0 0 30px red;
+    border: 2px solid red;
+}
+
+.hall {
+}
+
+.checked {
+    box-shadow: 0 0 30px yellow;
+    border: 2px solid yellow;
+}
+
+.loading {
+    height: 50px;
+    width: 50px;
+    background: url("../photos/loading.gif");
+    margin-left: 200px;
+}
+
+/* Login / Register / Profile / Edit */
+
+#body-login {
+    background-image: url('../photos/background.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#form-login {
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    color: #ffffff;
+}
+
+
+#form-login a:nth-of-type(1) {
+    color: #000000;
+}
+
+.registration-info {
+    color: #000000;
+    font-size: 2rem;
+}
+
+.registration-info a {
+    color: #000000;
+}
+
+.fos_user_user_show {
+    margin-top: 10%;
+    font-size: 2rem;
+}
+
+.btn-reset-pass {
+    margin-top: 10px;
+}
+.fos_user_resetting_request {
+    margin-top: 20%;
+}
+
+.show-user form {
+    width: 100%;
+}
+
+.send-email {
+    margin-top: 10%;
+}

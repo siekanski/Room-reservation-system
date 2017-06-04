@@ -1,0 +1,67 @@
+{% extends "::base.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block left %}
+    <div id='index_form'>
+        <h1>Admin</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div>
+        <div>
+            <a href="{{ path('getUsers') }}" class='btn btn-default admin-button'>Show users</a>
+        </div>
+        <div>
+            <a href="{{ path('showRooms') }}" class='btn btn-default admin-button'>Show rooms</a>
+        </div>
+    </div>
+{% endblock%}
+{% block right %}
+
+    <div class='admin-index-view'>
+
+        {% if reservations is empty %}
+            <h4>No reservation</h4>
+        {% else %}
+            {% if date is defined %}
+                <h3>Reservations on day {{ date|date('Y-m-d') }}:</h3>
+            {% else %}
+                <h3>Today reservations:</h3>
+            {% endif %}
+            <table class='table'>
+                <tr><th>Room</th><th>Date</th><th>Start:</th><th>End:</th><th>Cancel</th></tr>
+                        {% for reservation in reservations %}
+                    <tr>
+                        <td>
+                            {{ reservation.Room.name }}
+                        </td>
+                        <td>
+                            {{ reservation.date.date|date('Y-m-d') }}
+                        </td>
+                        <td>
+                            {{ reservation.timeStart.date|date('H:i')}}
+                        </td>
+                        <td>
+                            {{ reservation.timeEnd.date|date('H:i')}}
+                        </td>
+                        <td>
+                            <a class="delete btn btn-danger" href="{{ path('deleteUserReservation',{'id':reservation.id}) }}"><span class="glyphicon glyphicon-trash"></span> Cancel</a>  
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+
+        {% endif %}
+    </div>
+    {% block javascript %}
+        <script>
+            $(".delete").on('click', function (e) {
+                e.preventDefault();
+                $(this).after('<div><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure?!</div>');
+                $(this).unbind('click').click();
+            });
+        </script>
+    {% endblock %}
+{% endblock %}

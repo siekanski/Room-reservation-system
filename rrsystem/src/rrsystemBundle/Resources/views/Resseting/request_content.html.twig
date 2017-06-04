@@ -1,0 +1,40 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('/') }}">Room-reservation-system</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('fos_user_profile_show') }}">Profile / Settings</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-lg-4 col-md-4 col-sm-4'></div>
+        <div class='col-lg-4 col-md-4 col-sm-4'>
+            <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request form">
+                <div class="form-group">
+                    {% if invalid_username is defined %}
+                        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+                    {% endif %}
+                    <label for="username">{{ 'resetting.request.username'|trans }}</label>
+                    <input class="form-control" type="text" id="username" name="username" required="required" />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">{{ 'resetting.request.submit'|trans }}</button>
+                </div>
+            </form>
+        </div>
+        <div class='col-lg-4 col-md-4 col-sm-4'></div>
+    </div>
+</div>

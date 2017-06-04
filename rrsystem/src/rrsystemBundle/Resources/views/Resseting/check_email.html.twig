@@ -1,0 +1,36 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('/') }}">Room-reservation-system</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('fos_user_profile_show') }}">Profile / Settings</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class='container-fluid'>
+        <div class='row send-email'>
+            <div class='col-lg-4 col-md-4 col-sm-4'></div>
+            <div class='col-lg-4 col-md-4 col-sm-4'>
+                <p style="text-align: center; font-size: 2rem;">
+                    {{ 'resetting.check_email'|trans({'%email%': email}) }}
+                </p>
+            </div>
+            <div class='col-lg-4 col-md-4 col-sm-4'></div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Confirmations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confirmation in confirmations %}
+            <tr>
+                <td><a href="{{ path('confirmation_show', { 'id': confirmation.id }) }}">{{ confirmation.id }}</a></td>
+                <td>{{ confirmation.name }}</td>
+                <td>{{ confirmation.description }}</td>
+                <td>{{ confirmation.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('confirmation_show', { 'id': confirmation.id }) }}">show</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

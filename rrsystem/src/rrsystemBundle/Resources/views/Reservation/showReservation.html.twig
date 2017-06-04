@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 show-reservation">
+                <h3>Your reservations:</h3>
+                <table class="table">
+                    <tr><th>Room</th><th>Date</th><th>Start:</th><th>End:</th><th>Edit</th><th>Cancel</th></tr>
+                            {% for reservation in reservations %}
+                        <tr>
+                            <td>
+                                {{ reservation.Room.name }}
+                            </td>
+                            <td>
+                                {{ reservation.date.date|date('Y-m-d') }}
+                            </td>
+                            <td>
+                                {{ reservation.timeStart.date|date('H:i')}}
+                            </td>
+                            <td>
+                                {{ reservation.timeEnd.date|date('H:i')}}
+                            </td>
+                            
+                            <td>
+                                <a class="btn btn-primary" href="{{ path('editReservation',{'id':reservation.id}) }}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                            </td>
+                            <td>
+                                <a class="delete btn btn-danger" href="{{ path('deleteUserReservation',{'id':reservation.id}) }}"><span class="glyphicon glyphicon-trash"></span> Cancel</a>  
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                    <a href="{{ path('/') }}" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> Return</a>
+            </div>
+        </div>
+    </div>
+{% block javascript %}
+    <script>
+        $(".delete").on('click', function (e) {
+            e.preventDefault();
+            $(this).after('<div><span class="glyphicon glyphicon-exclamation-sign"></span> Are you sure?!</div>');
+            $(this).unbind('click').click();
+        });
+    </script>
+{% endblock %}
+{% endblock %}
+

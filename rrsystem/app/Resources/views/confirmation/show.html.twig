@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Confirmation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ confirmation.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ confirmation.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ confirmation.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ confirmation.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('confirmation_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <div class='container'>
+        <div class='row'> 
+            <div class='admin-users-rooms'>
+                <h3>Users:</h3>
+                <table class="table">
+                    <tr><th>Login</th><th>e-mail</th><th>Reservations</th><th>Delete</th></tr>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td><a class="btn btn-default" href="userReservations/{{ user.id }}"><span class="glyphicon glyphicon-list-alt"></span> Show reservations</a></td>
+                            <td><a class="btn btn-danger delete" href="deleteUser/{{ user.id }}"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    {% block javascript %}
+        <script>
+            $(".delete").on('click', function (e) {
+                e.preventDefault();
+                $(this).after('<div><span class="glyphicon glyphicon-exclamation-sign"></span> Czy na pewno?!</div>');
+                $(this).unbind('click').click();
+            });
+        </script>
+    {% endblock %}
+{% endblock %}

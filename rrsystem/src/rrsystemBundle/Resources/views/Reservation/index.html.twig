@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block left %}
+    <div id="index_form" data-path-getRooms="{{ path('getRooms')}}">    
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div>
+        <p class="left_bar_header">Nearest bookings:</p>
+        {% for res in reservations %}
+            <p class="res-info">{{res.room.name}}</p>
+            <p class="res-info">Date: {{res.date|date('d.m.Y')}} hour: {{res.timeStart|date('H:i')}} - {{res.timeEnd|date('H:i') }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+    <a href="showReservations" class="btn btn-default">Show all</a>
+{% endblock%}
+{% block right %}
+    <h3 id="h3_header">Floor III</h3>
+    <div id="floor">
+        <div id="1" class='room-big room'>
+            <div class="room-name">
+                <p>Conference room</p>
+                <p>Size: 13</p>
+            </div>
+        </div>
+        <div class='other-rooms'>
+            <div class='row rooms-1'>
+                <div id="2" class='col-lg-3 col-md-3 col-sm-3 room room-medium'>
+                    <div class="room-name">
+                        <p>Room 301</p>
+                        <p>Size: 6</p>
+                    </div>
+                </div>
+                <div id="3" class='col-lg-3 col-md-3 col-sm-3 room room-medium'>
+                    <div class="room-name">
+                        <p>Room 302</p>
+                        <p>Size: 6</p>
+                    </div>
+                </div>
+                <div id="4" class='col-lg-3 col-md-3 col-sm-3 room room-medium'>
+                    <div class="room-name">
+                        <p>Room 303</p>
+                        <p>Size: 6</p>
+                    </div>
+                </div>
+            </div>
+            <div class='row rooms-2 hall'></div>
+        </div>
+    </div>
+{% endblock %}

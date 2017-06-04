@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6 set-reservation-form">
+                <h2>A successful booking</h2>
+                <h4>Details</h4>
+                <p>Date: {{reservation.date}}</p>
+                <p>Start: {{reservation.timeStart}}</p>
+                <p>End: {{reservation.timeEnd}}</p>
+                <p>Projector: {{reservation.projector}}</p>
+                <a class="btn btn-default" href="{{path('/')}}">Return</a>
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+        </div>
+    </div>
+
+
+{%endblock%}

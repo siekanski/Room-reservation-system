@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6 set-reservation-form">
+                <h3>Choose more options about the reservation:</h3>
+                {{ form_start(form) }}
+               
+                <div>
+                    {{ form_label(form.projector)}}
+                    {{ form_widget(form.projector, {'attr':{'class':'form-control'}}) }}
+                </div>
+                <div>
+                    {{ form_widget(form.submit) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="col-lg-3 col-md-3"></div>
+        </div>
+    </div>
+{% endblock %}
